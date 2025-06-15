@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -138,24 +139,62 @@ const Index = () => {
         />
       </div>
 
-      {/* Conclusion Section */}
-      <section className="h-screen flex items-center justify-center bg-gradient-to-br from-stone-900 to-amber-900 relative">
-        <div className="text-center max-w-4xl mx-auto px-6">
-          <Heart className="h-16 w-16 text-red-400 mx-auto mb-6 animate-pulse" />
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            The Journey Continues
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Every father's story is unique, but the love that drives it is universal.
-          </p>
-          <Button 
-            size="lg"
-            variant="outline"
-            className="border-amber-400 text-amber-400 hover:bg-amber-400 hover:text-black"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          >
-            Start Over
-          </Button>
+      {/* Happy Father's Day Section */}
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-900 via-purple-900 to-indigo-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-black/20 z-10" />
+        
+        <div className="relative z-20 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6">
+          <div className="space-y-8 animate-fade-in">
+            <div className="text-center md:text-left">
+              <Heart className="h-16 w-16 text-red-400 mx-auto md:mx-0 mb-6 animate-pulse" />
+              <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+                Happy
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-pink-500">
+                  Father's Day
+                </span>
+              </h2>
+            </div>
+            
+            <div className="prose prose-lg prose-invert max-w-none">
+              <p className="text-xl md:text-2xl text-gray-200 leading-relaxed mb-6">
+                Behind every father's smile lies a universe of silent sacrifices. The sleep he gave up to comfort your nightmares, 
+                the dreams he postponed to fund yours, the fears he conquered to become your hero.
+              </p>
+              
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
+                He worked longer hours without complaint, carried worries he never shared, and found strength in moments when 
+                he felt weakest—all because loving you became his greatest purpose. His rough hands tell stories of labor 
+                and love, his tired eyes reflect years of watching over you, and his heart beats with a love so profound 
+                it reshapes his very existence.
+              </p>
+              
+              <p className="text-lg md:text-xl text-amber-200 leading-relaxed font-medium">
+                Today we honor not just fathers, but the quiet heroes who transformed their lives the moment they held us. 
+                Thank you, Dad, for every sacrifice seen and unseen, for being our first love and our forever protector.
+              </p>
+            </div>
+            
+            <Button 
+              size="lg"
+              className="bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white px-8 py-4 text-lg mt-8"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
+              Celebrate All Fathers
+              <Heart className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+          
+          <div className="animate-fade-in animation-delay-300">
+            <Card className="overflow-hidden bg-white/10 backdrop-blur-md border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
+              <div className="aspect-[4/5] overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Father and child sharing a tender moment"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                />
+              </div>
+            </Card>
+          </div>
         </div>
       </section>
 
