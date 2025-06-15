@@ -157,7 +157,7 @@ const Index = () => {
         </div>
       </section>
 
-      <StoryModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} stageName={stages[selectedStage].title} />
+      <StoryModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} stageName={stages[selectedStage]?.title || stages[0].title} />
     </div>;
 };
 export default Index;
