@@ -1,8 +1,7 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Heart, ArrowDown, Users, BookOpen, Bicycle, GraduationCap, Baby } from 'lucide-react';
+import { Heart, ArrowDown, Users, BookOpen, GraduationCap, Baby } from 'lucide-react';
 import { TimelineStage } from '@/components/TimelineStage';
 import { MemoryBubble } from '@/components/MemoryBubble';
 import { StoryModal } from '@/components/StoryModal';
@@ -38,7 +37,7 @@ const Index = () => {
       quote: "Watching them grow, learning as they learn.",
       description: "Teaching life lessons through bike rides, homework sessions, and heart-to-heart conversations that shape who they become.",
       image: '/lovable-uploads/0448c46f-1855-4529-872f-293259294a34.png',
-      icon: Bicycle,
+      icon: BookOpen,
       color: 'from-green-900/20 to-emerald-900/30'
     },
     {
