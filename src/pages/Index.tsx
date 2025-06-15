@@ -1,4 +1,5 @@
 
+
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -188,8 +189,8 @@ const Index = () => {
             <Card className="overflow-hidden bg-white/10 backdrop-blur-md border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
               <div className="aspect-[4/5] overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Father and child sharing a tender moment"
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Father and son embracing in a warm hug"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 />
               </div>
@@ -208,3 +209,4 @@ const Index = () => {
 };
 
 export default Index;
+
