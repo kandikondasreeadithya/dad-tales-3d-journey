@@ -5,11 +5,15 @@ import { Heart, ArrowDown, Users, BookOpen, GraduationCap, Baby } from 'lucide-r
 import { TimelineStage } from '@/components/TimelineStage';
 import { MemoryBubble } from '@/components/MemoryBubble';
 import { StoryModal } from '@/components/StoryModal';
+
+console.log('Index page hot loaded!'); // Top-level debug
+
 const Index = () => {
   const [currentStage, setCurrentStage] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedStage, setSelectedStage] = useState(0);
   const timelineRef = useRef<HTMLDivElement>(null);
+
   const stages = [{
     id: 'chaos',
     title: 'New Dad Chaos',
@@ -51,6 +55,7 @@ const Index = () => {
     icon: Users,
     color: 'from-rose-900/20 to-pink-900/30'
   }];
+
   useEffect(() => {
     const handleScroll = () => {
       if (!timelineRef.current) return;
@@ -62,11 +67,20 @@ const Index = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   const openStoryModal = (stageIndex: number) => {
     setSelectedStage(stageIndex);
     setIsModalOpen(true);
   };
-  return <div className="min-h-screen bg-gradient-to-br from-slate-900 via-stone-900 to-amber-900">
+
+  // Defensive: If stages is empty, handle gracefully
+  if (!stages || stages.length === 0) {
+    return <div className="p-8 text-red-500">No timeline data configured.</div>;
+  }
+
+  // Defensive: Wrap critical section
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-stone-900 to-amber-900">
       {/* Hero Section */}
       <section className="h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black/50 to-black/30 z-10" />
@@ -100,7 +114,18 @@ const Index = () => {
 
       {/* Timeline Section */}
       <div ref={timelineRef} className="relative">
-        {stages.map((stage, index) => <TimelineStage key={stage.id} stage={stage} index={index} isActive={currentStage === index} onAddStory={() => openStoryModal(index)} />)}
+        {Array.isArray(stages) && stages.map ? (
+          stages.map((stage, index) => {
+            try {
+              return <TimelineStage key={stage.id} stage={stage} index={index} isActive={currentStage === index} onAddStory={() => openStoryModal(index)} />;
+            } catch (e) {
+              console.error(`Error rendering TimelineStage at index ${index}:`, e);
+              return <div key={stage.id} className="text-red-500">Error loading this timeline stage.</div>;
+            }
+          })
+        ) : (
+          <div className="text-red-500">Timeline data missing or invalid.</div>
+        )}
       </div>
 
       {/* Floating Memory Bubbles */}
@@ -157,7 +182,12 @@ const Index = () => {
         </div>
       </section>
 
-      <StoryModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} stageName={stages[selectedStage]?.title || stages[0].title} />
-    </div>;
+      {/* Modal, defensive: only mount if StoryModal is imported OK */}
+      {typeof StoryModal !== "undefined" && (
+        <StoryModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} stageName={stages[selectedStage]?.title || stages[0].title} />
+      )}
+    </div>
+  );
 };
+
 export default Index;
