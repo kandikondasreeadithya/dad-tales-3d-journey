@@ -7,7 +7,7 @@ import { componentTagger } from "lovable-tagger";
 // Update base to the repo name for GitHub Pages.
 // IMPORTANT: Replace 'your-repo-name' below with your actual GitHub repository name.
 export default defineConfig(({ mode }) => ({
-  base: '/your-repo-name/', // CHANGE THIS to your actual repo name!
+  base: '/dad-tales-3d-journey/', // Updated with your actual repo name!
   server: {
     host: "::",
     port: 8080,
