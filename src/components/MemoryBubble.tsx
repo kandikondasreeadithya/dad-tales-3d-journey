@@ -12,7 +12,7 @@ export const MemoryBubble = ({
   author
 }: MemoryBubbleProps) => {
   return (
-    <Card className="max-w-xs bg-white/10 backdrop-blur-md border-white/20 p-4 shadow-lg animate-fade-in animation-delay-700">
+    <Card className="max-w-xs bg-white/10 backdrop-blur-md border-white/20 p-4 shadow-lg animate-fade-in" style={{ animationDelay: '700ms' }}>
       <div className="flex items-start space-x-3">
         <Quote className="h-5 w-5 text-amber-300/80 flex-shrink-0 mt-1" />
         <div>

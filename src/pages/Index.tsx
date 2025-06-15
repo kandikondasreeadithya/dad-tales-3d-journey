@@ -81,10 +81,10 @@ const Index = () => {
               Fatherhood
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in animation-delay-300">
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in" style={{ animationDelay: '300ms' }}>
             A cinematic exploration through the stages of being a dad
           </p>
-          <Button size="lg" className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white px-8 py-4 text-lg animate-fade-in animation-delay-500" onClick={() => window.scrollTo({
+          <Button size="lg" className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white px-8 py-4 text-lg animate-fade-in" style={{ animationDelay: '500ms' }} onClick={() => window.scrollTo({
           top: window.innerHeight,
           behavior: 'smooth'
         })}>
@@ -147,7 +147,7 @@ const Index = () => {
             
           </div>
           
-          <div className="animate-fade-in animation-delay-300">
+          <div className="animate-fade-in" style={{ animationDelay: '300ms' }}>
             <Card className="overflow-hidden bg-white/10 backdrop-blur-md border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
               <div className="aspect-[4/5] overflow-hidden">
                 <img src="/lovable-uploads/94c4758d-06de-4d0d-ac69-5bef97ffe714.png" alt="Happy Father's Day - Father and son sharing a joyful embrace" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
